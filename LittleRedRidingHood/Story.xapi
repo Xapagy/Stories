@@ -1,0 +1,213 @@
+// ************************************************
+//
+//  Little Red Riding Hood - 
+//  version 5, December 30, 2015 
+//  known to run against Xapagy 1.0.481
+//
+// ************************************************
+
+
+// ************************************************
+//
+//  The frame of the story. 
+//  Daddy narrates the story to Cindy in the bedroom
+//
+// ************************************************
+
+// *** Scene and identity setup: Bedroom, Writing, Fairytale *** 
+
+$CreateScene #Bedroom CloseOthers With Instances bedroom, girl "Cindy", man
+The girl "Cindy" / is-inside / the bedroom.
+The girl / has-as-parent / the man.
+The man / is-inside / the bedroom.
+$CreateScene #Writing With Instances "BrothersGrimm"
+$CreateScene #Fairytale 
+The man -- parent-of -- "Cindy" / says in #Writing //
+  "BrothersGrimm" / says in #Fairytale //
+   a girl / exists. 
+The man / says in #Fairytale // the girl / has / a red hood.
+// FIXME: This is not working, why? 
+"Cindy" / says in #Bedroom // I / has / a red hood.
+The man / says in #Fairytale // the girl / is-a / "LRRH".
+
+// *** Scene done *** 
+
+
+// ************************************************
+//
+//  First scene in the fairy tale: Mom's house and orders
+//
+// ************************************************
+
+// *** Scene and identity setup: Momshouse *** 
+$ChangeScene #Fairytale
+$CreateScene #MomsHouse Current With Instances house, woman "Mother", girl "LRRH" -> "LRRH"
+"Mother" / has / the house.
+"Mother" / is-inside / the house.
+"LRRH" / is-inside / the house.
+The scene #MomsHouse / is-only-scene.
+
+$CheckPoint "Point1.xa"
+$Marker Point1
+
+// *** Scene and identity setup: MomsOrders ***
+$CreateScene #MomsOrders Current RelatedAs fictional-future With Instances girl "LRRH" -> "LRRH", old woman "Grandma"
+The girl / has-as-grandparent / the "Grandma".
+"Grandma" / has / a house. 
+The house -- of -- "Grandma" / is-inside / a forest.
+$ChangeScene #MomsHouse
+"Mother" / says in scene #MomsOrders // The girl / achieves,
+$..// The girl / thus has / a basket.
+$..// The girl / achieves,
+$..// The girl / thus has / a bread.
+$..// The girl / achieves,
+$..// The bread / thus is-inside / the basket.
+$..// The girl / achieves,
+$..// The girl / thus has / a wine.
+$..// The girl / achieves,
+$..// The wine / thus is-inside / the basket.
+$..// The girl / achieves, 
+$..// The girl / thus holds / the basket.
+//
+// we don't yet have the concepts of holding, giving etc. 
+//
+// $..// The girl / goes-to / the house -- of -- "Grandma".
+// $..// The girl / thus holds / the basket.
+// $..// The girl / goes-to / the house -- of -- "Grandma".
+// $..// The girl / achieves, 
+
+$..// "Grandma" / thus has / the bread.
+$..// The girl / achieves, 
+$..// "Grandma" / thus has / the wine.
+
+$CheckPoint "Point2.xa"
+$Marker Point2
+
+//
+//  The girl starts enacting what she was told
+//
+$ChangeScene #MomsHouse
+A basket / exists.
+"LRRH" / achieves.
+"LRRH" / thus has / the basket.
+A wine / exists.
+"LRRH" / achieves,
+The wine / thus is-inside / the basket.
+A bread / exists.
+"LRRH" / achieves,
+The bread / thus is-inside / the basket.
+"LRRH" / picks-up / the basket.
+// The negative relation is not yet supported
+// "LRRH" / achieves, 
+//"LRRH" / thus not-is-inside / the house. 
+
+// ************************************************
+//
+//  The scene in the forest, LRRH meets the wolf.
+// 
+// ************************************************
+
+// *** Scene and identity setup: Forest ***
+$CreateScene #Forest RelatedAs successor With Instances forest, girl "LRRH" -> "LRRH"
+// It is unlikely that scenes expire like this from here
+Scene #Forest / is-only-scene.
+
+// *** Actions begin *** 
+A large wolf / is-near / "LRRH".
+The wolf / utters / a text "Hello_little_girl!".
+The girl / utters / a text "Hello_wolf!".
+
+// *** Scene and identity setup: ForestConversation ***
+$CreateScene #ForestConversation With Instances girl -> girl, wolf -> wolf
+// the verb here was goes-to - I put move-completed for the time being
+// but this will need to be the appropriate movement verb once we
+// have the spatial reasoning 
+The wolf / says in #ForestConversation // The girl / move-completed / wh?
+The girl / says in #ForestConversation // I / has-as-grandparent / an old woman.
+$..// The old woman / has / a house.
+
+// *** Scene and identity setup: #LRRHPlan
+
+$ChangeScene #ForestConversation
+$CreateScene #LRRHPlan With Instances girl "LRRH" -> girl, house -> house, old woman -> old woman
+The old woman / has / the house.
+$ChangeScene #Forest
+ 
+The girl / says in #ForestConversation // 
+   I / plans in #LRRHPlan // the girl / achieves, 
+$..// the girl / thus is-inside / the house.    
+
+The wolf / utters / a text "Bye_bye".
+The wolf / achieves,
+The wolf / thus is-far / "LRRH".
+
+// ************************************************
+//  
+//   The scene at Grandma's house, the wolf eats
+//   Grandma.
+//
+// ************************************************
+
+$CreateScene #GrandmasHouse1 Current With Instances house, old woman "Grandma", wolf -> wolf 
+"Grandma" / is-inside / the house.
+The wolf / is-inside / the house.
+The wolf / swallows / "Grandma".
+A bed / is-inside / the house.
+The wolf / achieves,
+the wolf / thus is-inside / the bed.
+
+// ************************************************
+//  
+//   The scene at Grandma's house, LRRH arrives, 
+//   conversation With the wolf.
+//
+// ************************************************
+ 
+$CreateScene #GrandmasHouse2  Current RelatedAs successor With Instances house -> house, wolf -> wolf, small girl "LRRH"
+"LRRH" / is-identical / the girl -- in -- #Forest.
+
+$CreateScene #Conversation Current RelatedAs view  With Instances small girl "LRRH" -> "LRRH", old woman "Grandma" -> wolf
+"Grandma" / has / an eyes.   
+"Grandma" / has / a mouth.   
+// end of stuff which should have been implied
+The girl / has-as-grandparent / "Grandma".
+
+$ChangeScene #GrandmasHouse2
+The girl / asks in #Conversation//
+  eyes -- of -- "Grandma" / why is-a / large?    
+The wolf / says in scene #Conversation//
+  eyes -- of -- I / sees good / the girl.     
+The girl / asks in scene #Conversation//
+   mouth -- of -- "Grandma" / why is-a / large?
+The wolf / says in scene #Conversation//
+   I / swallows good / the girl.
+The wolf / swallows / "LRRH".
+
+// ************************************************
+//
+//   Final scene: the hunter arrives, kills the 
+//   wolf, cuts the wolf, the girl and grandma are 
+//   restored.
+//
+// ************************************************
+
+// set up the scene, connect the identities 
+$CreateScene #GrandmasHouse3 Current RelatedAs successor With Instances house -> house, wolf -> wolf
+The wolf / is-inside / the house.
+The wolf / is-a / asleep.
+A hunter man / exists.
+The hunter / achieves,
+The hunter / thus is-inside / the house.
+The hunter / kills / the wolf.
+The wolf / thus changes / dead.
+The wolf / has / a belly.
+The hunter / cuts / the belly -- of -- wolf.
+A girl "LRRH" / is-inside / the belly -- of -- wolf.
+The girl / is-identical / "LRRH" -- in -- scene #GrandmasHouse2.
+The girl / achieves.
+The girl / thus is-outside / the belly -- of -- wolf.
+An old woman / is-inside / the belly -- of -- wolf.
+// The old woman / is-identical / "Grandma" -- in -- scene #GrandmasHouse1.
+The old woman / achieves.
+The old woman / thus is-outside / the belly -- of -- wolf.
+

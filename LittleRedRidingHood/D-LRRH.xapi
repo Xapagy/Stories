@@ -1,0 +1,94 @@
+// **************************************************************************
+//
+//  Definitions for the Little Red Riding Hood domain
+// 
+//
+// **************************************************************************
+
+$Define LRRH
+
+$Include IfNotDefined Human 'Human'
+
+$Create Concept c_hood
+$Create Word "hood" For Concept [c_hood]
+
+$Create Concept c_basket
+$Create Word "basket" For Concept [c_basket]
+
+$Create Concept c_wine
+$Create Word "wine" For Concept [c_wine]
+
+$Create Concept c_bread
+$Create Word "bread" For Concept [c_bread]
+
+// locations and things
+
+$Create Concept c_forest
+$Create Word "forest" For Concept [c_forest]
+
+$Create Concept c_house 
+$Create Word "house" For Concept [c_house]
+   
+$Create Concept c_bed 
+$Create Word "bed" For Concept [c_bed]
+
+$Create Concept c_bedroom 
+$Create Word "bedroom" For Concept [c_bedroom]
+
+$Create Concept c_weapon
+$Create Word "weapon" For Concept [c_weapon]
+
+$Create Concept c_hunter
+$Create Word "hunter" For Concept [c_hunter]
+
+$Create Concept c_asleep
+$Create Word "asleep" For Concept [c_asleep]
+
+// body parts
+
+$Create Concept c_eyes
+$Create Word "eyes" For Concept [c_eyes]
+
+$Create Concept c_mouth
+$Create Word "mouth" For Concept [c_mouth]
+
+$Create Concept c_belly
+$Create Word "belly" For Concept [c_belly]
+
+
+
+// family relations 
+$Create Relation vr_parent
+$Create Word "has-as-parent" For Verb ["CreateRelation", vr_parent]
+$Create Word "parent-of" For Verb [vr_parent]
+
+$Create Relation vr_grandparent
+$Create Word "has-as-grandparent" For Verb ["CreateRelation", vr_grandparent]
+$Create Word "grandparent-of" For Verb [vr_grandparent]
+
+$Create Relation vr_boyfriend
+$Create Word "is-boyfriend-of" For Verb ["CreateRelation", vr_boyfriend]
+   
+$Create Verb v_attack
+$Create Word "attacks" For ActionVerb [v_attack]
+
+$Create Verb v_shoot
+$Create Word "shoots" For ActionVerb [v_shoot]
+
+$Create Verb v_cut
+$Create Word "cuts" For ActionVerb [v_cut]
+
+$Create Verb v_kill
+$Create Word "kills" For ActionVerb [v_kill]
+
+$Create Verb v_see
+$Create Word "sees" For ActionVerb [v_see]
+
+// should have side effects etc
+$Create Verb v_swallow 
+$Create Word "swallows" For ActionVerb [v_swallow]
+
+
+// adverb, applies in mixture
+$Create Verb va_good
+$Create Word "good" For Verb [va_good]
