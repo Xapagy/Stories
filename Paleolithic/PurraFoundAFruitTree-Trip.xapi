@@ -1,0 +1,107 @@
+// The narrative from the point of view of Purra
+//
+// The first couple of scenes are navigation based on landmarks, and must be 
+// summarized as such. They are linked by succession.
+// FIXME: add the hand created summarizations...
+// 
+// Scene 1: I set out towards small rock. 
+//
+$CreateScene #Reality_1 CloseOthers With Instances "Me" "Purra" "girl", w_c_rock w_c_small, w_c_rock w_c_large
+"Me" / holds / a w_c_small w_c_basket.
+"Me" / wa_v_see / the w_c_rock w_c_small.
+The w_c_small w_c_rock / is-far / "Me".
+$DebugHere
+"Me" / wcr_vr_facing / the w_c_rock w_c_small.
+"Me" / wa_v_walk wv_v_longtime.
+//
+// Scene 2: I reach the river fork, cross the river, and go towards the big tree.
+//
+$CreateScene #Reality_2 Current RelatedAs successor With Instances "Me" -> "Purra", w_c_rock -> w_c_rock
+"Me" / wa_v_see / the w_c_rock.
+The w_c_small w_c_rock / is-near / "Me".
+"Me" / wa_v_see / a w_c_river.
+// This will probably needs to be represented in some way that it changes relations
+"Me" / wa_v_cross / the w_c_river.
+"Me" / wa_v_see / a w_c_tree w_c_large.
+"Me" / wcr_vr_facing / the w_c_tree w_c_large.
+"Me" / wa_v_walk wv_v_longtime.
+//
+// Scene 3: I reach the big tree, see a tree with red fruit, go to the red fruit tree
+//
+$CreateScene #Reality_3 Current RelatedAs successor With Instances "Me" -> "Me", w_c_tree w_c_large -> w_c_tree w_c_large
+The w_c_tree / is-near / "Me".
+"Me" / wa_v_see / a small w_c_tree.
+// The fruit tree holds many fruit. We don't know how to represent such a group. We also
+// don't know how to represent that if we keep a lot...
+The small w_c_tree / has / #FRUITS w_c_group w_c_very_many w_c_fruit.
+"Me" / wcr_vr_facing / the w_c_tree w_c_small.
+"Me" / wa_v_walk.
+//
+// Scene 4: Pick and eat some of the fruit. 
+//
+$CreateScene #Reality_4 Current RelatedAs successor With Instances "Me" -> "Me", w_c_tree w_c_large -> w_c_tree w_c_large
+The w_c_tree / is-near / "Me".
+// The next two VIs describe the action that a particular fruit is being 
+// separated from the many fruits in the tree
+A w_c_fruit / #C1 wa_v_separate_from_group / w_c_group #FRUITS. 
+"Me" / #C1 thus wa_v_pick / the w_c_fruit. 
+// I eat the fruit, which will then disappear from physical reality. 
+"Me" / wa_v_eat / the w_c_fruit. 
+// FIXME: Discuss the taste (good)
+A w_c_fruit / #C2 wa_v_separate_from_group / w_c_group #FRUITS. 
+"Me" / #C2 thus wa_v_pick / the w_c_fruit. 
+"Me" / wa_v_eat / the w_c_fruit. 
+// FIME: Represent that I am not hungry any more by removing the relation
+"Me" / wrr_vr_hungry / the scene. 
+//
+// Pick some more fruit and put it in the basket
+// 
+// One of the challenges here is the sudden reappearance of the basket. 
+// it would be quite possible that Purra lost the basket somewhere and it simply 
+// realizes it now. 
+//
+// What we would need here is really that Purra remembers that she started out with a 
+// basket, then she looks for it, realizes that she is holding a basket, identifies that
+// this basket is the one she had started out with...
+//
+// Then she proceeds to load it.
+//
+// For the time being, we are fudging this, and assume that a new basket instance is 
+// created. 
+//
+"Me" / holds / a w_c_basket.
+// pick three fruits and put them in the basket
+
+// first fruit
+A w_c_fruit / #CX1 wa_v_separate_from_group / w_c_group #FRUITS. 
+"Me" / #CX1 thus wa_v_pick / the w_c_fruit.
+// put the fruit in the basket - this coincidence set is the standard way 
+// in Xapagy to put something in something...
+"Me" / #CY1 wa_v_put / the w_c_fruit.
+The w_c_fruit / #CY1 thus wcr_vr_inside / the w_c_basket.
+
+// second fruit
+A w_c_fruit / #CX2 wa_v_separate_from_group / w_c_group #FRUITS. 
+"Me" / #CX2 thus wa_v_pick / the w_c_fruit.
+// put the fruit in the basket
+"Me" / #CY2 wa_v_put / the w_c_fruit.
+The w_c_fruit / #CY2 thus wcr_vr_inside / the w_c_basket.
+//
+// at this moment we could describe that there is a pair of fruits in the basket
+// but let us ignore this
+// third fruit
+//
+A w_c_fruit / #CX3 wa_v_separate_from_group / w_c_group #FRUITS. 
+"Me" / #CX3 thus wa_v_pick / the w_c_fruit.
+// put the fruit in the basket
+"Me" / #CY3 wa_v_put / the w_c_fruit.
+The w_c_fruit / #CY3 thus wcr_vr_inside / the w_c_basket.
+//
+// At this moment, we create the group of fruits in the basket.
+// This doesn't happen by Purra mentally creating a group out of the individual 
+// fruits she sees or touches - these fruits will loose their individuality in the long
+// run. On the other hand, the group of fruits in the basket remain as an individual 
+// entity.
+//
+A group w_c_fruit / exists.
+The group w_c_fruit / wcr_vr_inside / the w_c_basket.

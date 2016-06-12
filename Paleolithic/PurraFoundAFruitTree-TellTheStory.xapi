@@ -1,0 +1,107 @@
+//  "Purra found a fruit tree" - part 2
+//  Purra goes home, distributes the fruit, and tells the other
+//  women where it found it
+//
+// Scene 5: Purra walks home to the camp next to the big rock 
+//
+$CreateScene #Reality_5 Current RelatedAs successor With Instances "Me" -> "Me"
+"Me" / wa_v_see / a w_c_rock w_c_large.
+"Me" / wcr_vr_facing / the w_c_rock w_c_large.
+"Me" / wa_v_walk wv_v_longtime.
+//
+// Scene 6: Purra arrives at home, shares the fruit and tells the other women 
+// about the trip
+//
+$NewScene #Reality_6 Current RelatedAs successor With Instances "Me" -> "Me" 
+"Me" / wa_v_see / a w_c_camp.
+"Me" / wa_v_see / a female w_c_old "Lurra".
+"Me" / wa_v_see / a female w_c_young "Vurra".
+"Me" / wa_v_see / a girl "Zurra".
+// sharing of the fruit - Purra gives each of them a fruit - then the basket is empty...
+// FIXME: number of items in the basket (several)
+"Me" / wcr_vr_holds / a w_c_basket.
+A group w_c_fruit w_c_several #FRUITS / wcr_vr_inside / the w_c_basket.
+
+// Give the fruit to Vurra: one coincidence pack to separate from the remainder of the group
+// and pick up, one coincidence pack for handing over stuff
+A w_c_fruit / #CX3 wa_v_separate_from_group / w_c_group #FRUITS. 
+"Me" / #CX3 thus wa_v_pick / the w_c_fruit.
+"Me" / #CX3 thus wcr_vr_holds / the w_c_fruit.
+// this is "transfer triplet" - the hand over specifies the transfer, the relationship
+// change VIs indicate the transfer of the object
+"Me" / #CX3b wa_v_hand_over / "Vurra".
+"Me" / #CX3b thus wrr_vr_holds / the w_c_fruit.
+"Vurra" / #CX3b thus wcr_vr_holds / the w_c_fruit.
+
+// Give a fruit to Lurra - similar giving a fruit to Vurra, but this time the quantity of 
+// the group changes from several to a pair
+A w_c_fruit / #CX4 wa_v_separate_from_group / w_c_group #FRUITS. 
+The w_c_group #FRUITS / changes / w_c_group w_c_pair w_c_fruit #FRUIITS2. 
+
+"Me" / #CX4 thus wa_v_pick / the w_c_fruit.
+"Me" / #CX4 thus wcr_vr_holds / the w_c_fruit.
+// transfer triplet
+"Me" / #CX4b wa_v_hand_over / "Lurra".
+"Me" / #CX4b thus wrr_vr_holds / the w_c_fruit.
+"Lurra" / #CX4b thus wcr_vr_holds / the w_c_fruit.
+
+
+//Give a fruit to Lurra - similar giving a fruit to Vurra, but this time the quantity of 
+//the group changes from several to a pair
+//A w_c_fruit #LURRA_FRUIT / #CX5 wa_v_separate_from / w_c_group #FRUITS2. 
+//The w_c_group #FRUITS2 / changes / w_c_fruit. 
+
+//"Me" / #CX5 thus wa_v_pick / the w_c_fruit #LURRA_FRUIT.
+//"Me" / #CX5 thus wcr_vr_hold / the w_c_fruit #LURRA_FRUIT.
+//"Me" / #CX5b wa_v_give / the w_c_fruit #LURRA_FRUIT.
+//"Me" / #CX5b thus wdr_vr_hold / the w_c_fruit #LURRA_FRUIT.
+//"Lurra" / #CX5b thus wcr_vr_hold / the w_c_fruit #LURRA_FRUIT.
+
+// Ok, we are done with the spreading of the gifts
+// Time to decribe what we have done. Normally, here we would need to make a longer 
+// conversation, but let us now assume that Purra just goes ahead and starts the narrative
+// -create a new scene that describes the story...
+$CreateScene #Memory_1 Current RelatedAs view With Instances "Me" -> "Me"
+// ... at this moment we would have to indicate that this is "this morning, I was in the camp etc"
+// we don't know how to do this, so let's just move on
+//
+// There are some questions about the way a recollection of long walks happen... 
+// do we represent the change in spatial relations????
+//
+// The utterances are created by the externalizer - here we are explicitly 
+// specifying them...
+//
+//  I went to the small rock
+//
+"Me" / wa_v_see #UTTER1 / the w_c_rock w_c_small.
+"Me" / wcr_vr_facing #UTTER1 / the w_c_rock w_c_small.
+"Me" / wa_v_walk wv_v_longtime #UTTER1.
+// Now, let the externalizer do something to it.
+//we need to specify somehow that this utterance describe those components...
+$ChangeScene #Reality_6
+"Me" / wa_v_utter #UTTER1 / "I went to the small rock".
+//
+//  I crossed the river
+//
+$ChangeScene #Memory_1
+"Me" / wa_v_see #UTTER2 / a w_c_river.
+"Me" / wa_v_cross #UTTER2 / the w_c_river.
+$ChangeScene #Reality_6
+"Me" / wa_v_utter #UTTER2 / "I crossed the river".
+//
+//  I went to the big tree
+//
+$ChangeScene #Memory_1
+"Me" / wa_v_see #UTTER3 / a w_c_tree w_c_large.
+"Me" / wcr_vr_facing #UTTER3 / the w_c_tree w_c_large.
+"Me" / wa_v_walk wv_v_longtime #UTTER3.
+$ChangeScene #Reality_6
+"Me" / wa_v_utter #UTTER3 / "I walked to the big tree".
+//
+// Next to the big tree there was a small tree with many fruits
+//
+$ChangeScene #Memory_1
+"Me" / wa_v_see #UTTER4 / a small w_c_tree.
+The small w_c_tree / is_near #UTTER4 / the large w_c_tree.
+The small w_c_tree / has #UTTER4 / #FRUITS w_c_group w_c_very_many w_c_fruit.
+"Me" / wa_v_utter #UTTER4 / "Next to the big tree there was a small tree with many fruits".

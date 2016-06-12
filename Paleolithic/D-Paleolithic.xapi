@@ -1,0 +1,129 @@
+//**********************************************************************
+//
+//   The objective of the paleolithic domain is to model the world 
+//   of two paleolithic hunter-gatherer tribes.
+// 
+//
+//**********************************************************************
+
+$Define Paleolithic
+$Include IfNotDefined Human 'Human'
+
+$-- "a fruit (that can be eaten and satisfies hunger)"
+$Create Concept c_fruit
+
+$-- "a rock (a large entity that can be seen from far away)" 
+$Create Concept c_rock
+
+$-- "a river (a fluid body of water that separates the land into"
+$-- "two parts)"
+$Create Concept c_river
+
+$-- "a tree (a tall object you can see from a distance, it can" 
+$-- "have or not fruits on it)"
+$Create Concept c_tree
+
+$-- "a basket - it is a container, it allows you to carry things"
+$Create Concept c_basket
+
+$-- "a camp: a small group of huts etc." 
+$Create Concept c_camp
+
+//***************************************************************************
+// Quantity concepts - these must be general, but for the time 
+// being let us 
+// play with them...
+//
+//***************************************************************************
+
+$-- "a group of two objects"
+$Create Concept c_pair
+
+$-- "a group of three objects - we need to know that by removing" 
+$-- "one, we will get a pair"
+$Create Concept c_triplet
+
+$-- "a group of 4-8 objects"
+$Create Concept c_several
+
+$-- "a group of 9-16 objects"
+$Create Concept c_many 
+
+$-- "a group of 16-128 objects - repeated removal can transfor it into"
+$-- "barely many..."
+$Create Concept c_very_many
+
+$-- "an uncountable number of objects - not suitable for transformation" 
+$-- "to countable"
+$Create Concept c_uncountable
+
+$-- "an entity is going to be separated from the group"
+$Create Verb v_separate_from_group
+
+$-- "an entity is going to be added to the group"
+$-- "what happens when we do this to groups of c_pair, c_triplet..."
+$Create Verb v_add_to_group
+
+//**********************************************************
+// Summarization verbs (questionable)
+//**********************************************************
+
+$-- "added to a VI represents that it happens for a long time"
+$Create Verb v_longtime
+
+// **********************************************************
+// General action verbs
+// **********************************************************
+
+// A human subject sees an object. It means more that "observe the presence of" something. 
+$Create Verb v_see
+
+// Somebody eats something. The assumption is that that object will not exist any more
+$Create Verb v_eat
+
+// Changing position by walking. The assumption is that by walking, I am getting closer
+// to the object I am facing and farther from the object I am facing away 
+$Create Verb v_walk
+
+// Changing position by running. The assumption is that by running, I am getting closer
+// to the object I am facing and farther from the object I am facing away 
+$Create Verb v_run
+
+// The changing of the position by crossing (a mountain, a river)... 
+// When it is "Me" doing it, it changes my relation with respect to a number of things...
+$Create Verb v_cross
+
+// "Picking" up an object. The idea is that the picking up, in a coincidence group with 
+// separating from a group can represent something like picking up an object from a group etc.
+$Create Verb v_pick
+
+//"Putting" down an object. The idea is that after this function, we are not holding the 
+// object any more. It usually appears in a coincidence group with some kind of spatial 
+// achievement (i.e. the object is in the stuff) 
+$Create Verb v_put
+
+// "Handing over" something - typically between two humans. The subject is the one who is giving
+// something, the object is the one who is receiving something. It usually appears in a coincidence
+// group with the holding relationship change. 
+$Create Verb v_hand_over
+
+
+// **********************************************************
+// General relation verbs
+// **********************************************************
+
+// relation describing that a human subject is facing the object
+// walking or running make it get closer
+$Create Relation vr_facing
+   
+// relation describing that a human subject is facing the object
+// walking or running make it get closer
+// FIXME: should this be defined in opposition to facing???
+$Create Relation vr_facing_away
+$Create VerbImpact vr_facing_away Impacts vr_facing With -1.0
+   
+// describes a feeling of the human subject (single term relation, object is the scene)  
+$Create Relation vr_tired
+   
+// decribes a relation of being hungry (single term relation, object is the scene)
+$Create Relation vr_hungry
