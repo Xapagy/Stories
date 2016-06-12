@@ -1,0 +1,22 @@
+//
+//  Fictional story of Muhammad Ali vs George Foreman 1974
+//  http://en.wikipedia.org/wiki/The_Rumble_in_the_Jungle
+//
+//  The fight ends With:
+//  a left hook that brought Foreman's head up into position and a hard right straight 
+//  to the face that caused Foreman to stumble to the canvas. Foreman did get 
+//  up at the count of nine, but referee Zack Clayton stopped the bout With two 
+//  seconds remaining in the round 
+//
+$CreateScene #Reality CloseOthers With Instances "GeorgeForeman" w_c_boxer, "MuhammadAli" w_c_boxer
+"MuhammadAli" / wa_v_box_attack / "GeorgeForeman".
+"GeorgeForeman" / wa_v_box_block / "MuhammadAli".
+"GeorgeForeman" / wa_v_box_attack / "MuhammadAli".
+"MuhammadAli" / wa_v_box_block / "GeorgeForeman".
+"MuhammadAli" / wa_v_box_attack / "GeorgeForeman".
+"GeorgeForeman" / wa_v_box_block / "MuhammadAli".
+"MuhammadAli" / wcr_vr_invigorated / "MuhammadAli".
+"GeorgeForeman" / wcr_vr_tired / "GeorgeForeman".
+"MuhammadAli" / wa_v_box_attack / "GeorgeForeman".
+"MuhammadAli" / wa_v_box_decisive_punch / "GeorgeForeman".
+"MuhammadAli" / thus wcr_vr_victorious_over / "GeorgeForeman".

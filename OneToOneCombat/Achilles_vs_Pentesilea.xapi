@@ -1,0 +1,13 @@
+$CreateScene #Reality CloseOthers With Instances "Achilles" greek w_c_warrior, "Pentesilea" w_c_amazon woman w_c_warrior
+"Achilles" / wa_v_sword_attack / "Pentesilea".
+"Pentesilea" / wa_v_sword_defend / "Achilles".
+"Achilles" / wa_v_sword_attack / "Pentesilea".
+"Pentesilea" / wa_v_sword_defend / "Achilles".
+"Pentesilea" / wcr_vr_tired / "Pentesilea".
+"Achilles" / wa_v_sword_attack / "Pentesilea".
+"Pentesilea" / wa_v_sword_defend / "Achilles".
+"Achilles" / wa_v_sword_attack / "Pentesilea".
+"Achilles" / wa_v_sword_penetrate / "Pentesilea".
+"Achilles" / thus wcr_vr_victorious_over / "Pentesilea".
+"Pentesilea" / changes / dead.
+"Achilles" / loves / "Pentesilea". 

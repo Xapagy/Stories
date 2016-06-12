@@ -1,0 +1,13 @@
+$CreateScene #Reality CloseOthers With Instances "Patrocles" greek w_c_warrior, "Hector" trojan w_c_warrior
+"Patrocles" / wa_v_sword_attack / "Hector".
+"Hector" / wa_v_sword_defend / "Patrocles".
+"Hector" / wa_v_sword_attack / "Patrocles".
+"Patrocles" / wa_v_sword_defend / "Hector".
+"Hector" / wa_v_sword_attack / "Patrocles".
+"Patrocles" / wa_v_sword_defend / "Hector".
+"Hector" / wcr_vr_invigorated / "Hector".
+"Hector" / wcr_vr_tired / "Hector".
+"Hector" / wa_v_sword_attack / "Patrocles".
+"Hector" / wa_v_sword_penetrate / "Patrocles".
+"Hector" / thus wcr_vr_victorious_over / "Patrocles".
+"Patrocles" / thus changes / dead.

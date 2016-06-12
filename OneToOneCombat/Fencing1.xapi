@@ -1,0 +1,13 @@
+$CreateScene #Reality CloseOthers With Instances "Fencer-weak" w_c_sportsman, "Fencer-strong" w_c_sportsman
+"Fencer-strong" / wa_v_sword_attack / "Fencer-weak".
+"Fencer-weak" / wa_v_sword_defend / "Fencer-strong".
+"Fencer-weak" / wa_v_sword_attack / "Fencer-strong".
+"Fencer-strong" / wa_v_sword_defend / "Fencer-weak".
+"Fencer-strong" / wa_v_sword_attack / "Fencer-weak".
+"Fencer-weak" / wa_v_sword_defend / "Fencer-strong".
+"Fencer-strong" / wcr_vr_invigorated / "Fencer-strong".
+"Fencer-weak" / wcr_vr_tired / "Fencer-weak".
+"Fencer-strong" / wa_v_sword_attack / "Fencer-weak".
+"Fencer-strong" / wcr_vr_victorious_over / "Fencer-weak".
+"Fencer-weak" / wa_v_conceeds_defeat / "Fencer-strong".
+"Fencer-strong" / wa_v_shakes_hand / "Fencer-weak".

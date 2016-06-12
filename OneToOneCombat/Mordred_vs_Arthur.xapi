@@ -1,0 +1,14 @@
+$CreateScene #Reality CloseOthers With Instances "Arthur" w_c_knight, "Mordred" w_c_knight
+"Mordred" / hates / "Arthur".
+"Mordred" / wa_v_sword_attack / "Arthur".
+"Arthur" / wa_v_sword_defend / "Mordred".
+"Arthur" / wa_v_sword_attack / "Mordred".
+"Mordred" / wa_v_sword_defend / "Arthur".
+"Mordred" / wa_v_sword_attack / "Arthur".
+"Arthur" / wa_v_sword_defend / "Mordred".
+"Mordred" / wcr_vr_invigorated / "Mordred".
+"Arthur" / wcr_vr_tired / "Arthur".
+"Mordred" / wa_v_sword_attack / "Arthur".
+"Mordred" / wa_v_sword_penetrate / "Arthur".
+//"Mordred" / thus wcr_vr_victorious_over / "Arthur".
+"Arthur" / thus changes / dead.

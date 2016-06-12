@@ -1,0 +1,184 @@
+// **************************************************************************
+//
+//   The objective of the one-to-one combat domain is as an 
+//   experimental domain  
+//   * to create a framework in which papers and demos can be done
+//   * experiment With stories which are closely and distantly related
+//   * experiment With predictions and summarization
+//
+//   It is not expected that this domain will be integrated into 
+//   the generic SYAB.
+//   We do not expect that these are very realistically modeled.
+//
+//   General principles:
+//   * two protagonists are engaged in a fight
+//   * the state of the fight can be judged (eg. tiredness or 
+//   vigor of one of the combatants)
+//   * there is an outcome (winning / loosing / draw)
+//
+//   We will define some subdomains
+//   -sword fight: medieval/ancient fight to death and modern 
+//   sport fencing
+//   -fist fight: box matches
+//   -chess: chess games
+//
+//   Levels:
+// 
+//
+// **************************************************************************
+
+$Define OneToOneCombat
+
+$Include IfNotDefined Human 'Human'
+
+$Create Concept c_one_to_one_combat_participant
+
+// a man who likes sports, but not
+// killing other people
+$Create Concept c_sportsman
+
+$Create Concept c_deadly_dueler
+
+// ***************************************
+//   Sword fight subdomain
+// ***************************************
+
+$Create Concept c_sword_fighter
+$Create ConceptOverlap c_sword_fighter Overlaps c_one_to_one_combat_participant With 0.8
+  
+  
+// ***************************************
+//   Sword fight subdomain - auxiliary
+// ***************************************
+
+$Create Concept c_warrior
+$Create ConceptOverlap c_warrior Overlaps c_one_to_one_combat_participant With 0.8
+$Create ConceptOverlap c_warrior Overlaps c_deadly_dueler With 0.8
+
+$Create Concept c_knight
+$Create ConceptOverlap c_knight Overlaps c_one_to_one_combat_participant With 0.8
+$Create ConceptOverlap c_knight Overlaps c_deadly_dueler With 0.8
+   
+$Create Concept c_fencer
+$Create ConceptOverlap c_fencer Overlaps c_one_to_one_combat_participant With 0.8
+$Create ConceptOverlap c_fencer Overlaps c_sportsman With 0.8
+
+// ***************************************
+//   Box subdomain
+// ***************************************
+
+$Create Concept c_boxer
+$Create ConceptOverlap c_boxer Overlaps c_one_to_one_combat_participant With 0.8
+$Create ConceptOverlap c_boxer Overlaps c_sportsman With 0.8
+
+// ***************************************
+//   Chess subdomain
+// ***************************************
+
+$Create Concept c_chessplayer
+$Create ConceptOverlap c_chessplayer Overlaps c_one_to_one_combat_participant With 0.8
+$Create ConceptOverlap c_chessplayer Overlaps c_sportsman With 0.8
+
+ % **********************************************************
+% General action verbs
+% **********************************************************
+
+$Create Verb v_conceeds_defeat
+
+$Create Verb v_shakes_hand
+
+% **********************************************************
+% General relation verbs
+% **********************************************************
+
+// single term relation, connect to scene
+$Create Relation vr_tired
+
+// single term relation, connect to scene
+$Create Relation vr_invigorated
+
+// winner - vo. - looser
+$Create Relation vr_victorious_over
+
+// attacker attacks defender
+$Create Verb v_one_to_one_attack
+
+% **********************************************************
+% Sword fight subdomain - coarse granularity
+% **********************************************************
+
+// attacker attacks defender
+$Create Verb v_sword_attack 
+$Create VerbOverlap v_sword_attack Overlaps v_one_to_one_attack With 0.8
+
+// defender defends-from attacker
+$Create Verb v_sword_defend
+
+% triggers tired, wounded etc
+$Create Verb v_sword_wound
+
+% triggers death
+$Create Verb v_sword_penetrate
+
+% **********************************************************
+% Sword fight subdomain - medium granularity
+% http://en.wikipedia.org/wiki/Glossary_of_fencing
+% **********************************************************
+
+% ********** Neutral actions ***************************
+
+% hitting the opponent's blade to distract him
+$Create Verb v_sword_beat
+
+// An action in which one fencer forces the opponent's blade into the diagonally 
+// opposite line, (that is, from high line to low line on the opposite side, 
+// or vice versa) by taking it With the guard and forte of his own blade.
+$Create Verb v_sword_bind
+
+
+% ********** Defensive actions ***************************
+
+% deflecting the incoming attack With a sharp striking motion 
+$Create Verb v_sword_beat_parry
+
+% A parry that moves in a circle to end up in the same position in which it started. 
+% A counter-parry usually traps an attack coming in a different line, but in the same high/low line. 
+$Create Verb v_sword_counter_parry
+
+% **********************************************************
+% Boxing domain - coarse granularity
+% **********************************************************
+
+// attacker attacks defender
+$Create Verb v_box_attack 
+$Create VerbOverlap v_box_attack Overlaps v_one_to_one_attack With 0.8
+
+// defender defends-from attacker
+$Create Verb v_box_block
+
+% triggers tired
+$Create Verb v_box_punch
+
+% triggers KO
+$Create Verb v_box_decisive_punch
+
+% **********************************************************
+% Box subdomain - medium granularity - TODO
+% **********************************************************
+
+% **********************************************************
+% Chess domain - coarse granularity
+% **********************************************************
+
+// attacker attacks defender
+$Create Verb v_chess_attack 
+$Create VerbOverlap v_chess_attack Overlaps v_one_to_one_attack With 0.5
+
+// defender defends-from attacker
+$Create Verb v_chess_defend
+
+% triggers tired
+$Create Verb v_chess_check
+
+% triggers victory
+$Create Verb v_chess_checkmate

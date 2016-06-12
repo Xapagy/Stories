@@ -1,0 +1,8 @@
+$Include "Hector_vs_Patrocles.xapi"
+$Include "Mordred_vs_Arthur.xapi"
+$Include "Achilles_vs_Pentesilea.xapi"
+$Include "Heracles_vs_Hippolyta.xapi"
+$Include "Fencing1.xapi"
+$Include "Fencing2.xapi"
+$Include "MuhammadAli_vs_SonnyListon.xapi"
+$Include "MuhammadAli_vs_GeorgeForeman.xapi"

@@ -1,0 +1,10 @@
+$CreateScene #Reality CloseOthers With Instances "Heracles" greek w_c_warrior, "Hyppolita" w_c_amazon woman w_c_warrior
+"Heracles" / wa_v_sword_attack / "Hyppolita".
+"Hyppolita" / wa_v_sword_defend / "Heracles".
+"Heracles" / wa_v_sword_attack / "Hyppolita".
+"Hyppolita" / wa_v_sword_defend / "Heracles".
+"Hyppolita" / wcr_vr_tired / "Hyppolita".
+"Heracles" / wa_v_sword_attack / "Hyppolita".
+"Hyppolita" / wa_v_sword_defend / "Heracles".
+"Hyppolita" / wa_v_conceeds_defeat / "Heracles".
+"Heracles" / thus wcr_vr_victorious_over / "Hyppolita".
