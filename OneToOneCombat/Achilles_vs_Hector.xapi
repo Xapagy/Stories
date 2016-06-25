@@ -2,7 +2,7 @@ $SetParameter A_DEBUG/G_GENERAL/N_RECORD_LINK_QUANTUMS = 1.0
 $SetParameter A_DEBUG/G_GENERAL/N_RECORD_SHADOW_QUANTUMS = 1.0
 $SetParameter A_DEBUG/G_GENERAL/N_RECORD_FOCUS_MEMORY_QUANTUMS = 1.0
 
-$DebugHere
+// $DebugHere
 
 $CreateScene #Reality CloseOthers With Instances "Achilles" greek w_c_warrior, "Hector" trojan w_c_warrior
 "Achilles" / hates / "Hector".
