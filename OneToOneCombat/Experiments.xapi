@@ -1,2 +1,12 @@
-// this file contains experiments to be done after running the Achilles / Hector file
-// I am using this to debug the Javascript interface and various lowhanging stuff.
+// this file contains experiments to be done after running 
+// the Achilles / Hector file
+// I am using this to debug the Javascript interface and 
+// various lowhanging stuff.
+${{
+   print(introspect.getAgentName());
+   print("The current story line:");
+   print(introspect.getCurrentStory());
+   print("The strongest shadow story:");
+   print(introspect.getStrongestShadowStory());
+$}}
+$DebugHere

@@ -72,14 +72,26 @@ $-- "added to a VI represents that it happens for a long time"
 $Create Verb v_longtime
 
 // **********************************************************
+// Gestures and faces: these are verbs with no object
+// **********************************************************
+$Create Verb v_ 
+
+// **********************************************************
 // General action verbs
 // **********************************************************
 
-// A human subject sees an object. It means more that "observe the presence of" something. 
-$Create Verb v_see
+// A human subject (visually) notices an object. It means more like "observe the presence of" something. 
+$Create Verb v_notice
 
-// Somebody eats something. The assumption is that that object will not exist any more
+// Somebody smells an object by bringing it to his nose (or bringing his nose close to it). The object will remain. This is usually followed by some kind of I smell good-smell / bad-smell kind of stuff.
+$Create Verb v_smell
+
+// Somebody eats something by putting it in its mouth. The assumption is that that object will not exist any more
 $Create Verb v_eat
+
+
+// Somebody bites a piece from something. The assumption is that that object will become smaller
+$Create Verb v_bite_from
 
 // Changing position by walking. The assumption is that by walking, I am getting closer
 // to the object I am facing and farther from the object I am facing away 

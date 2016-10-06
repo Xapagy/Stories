@@ -1,3 +1,4 @@
+$Namespace Create
 $CreateScene #Reality CloseOthers With Instances "Arthur" w_c_knight, "Mordred" w_c_knight
 "Mordred" / hates / "Arthur".
 "Mordred" / wa_v_sword_attack / "Arthur".

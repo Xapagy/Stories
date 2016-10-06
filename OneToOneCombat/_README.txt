@@ -26,3 +26,7 @@ xapagy --input-agent D-OneToOneCombat.xa Achilles_vs_Hector.xapi -o temp.xa
 Checking the output
 
 xapagy -o temp.xa
+
+Running experiments on the output
+
+xapagy -i temp.xa Experiments.xapi

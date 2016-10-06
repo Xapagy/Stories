@@ -8,6 +8,7 @@
 //  up at the count of nine, but referee Zack Clayton stopped the bout With two 
 //  seconds remaining in the round 
 //
+$Namespace Create
 $CreateScene #Reality CloseOthers With Instances "GeorgeForeman" w_c_boxer, "MuhammadAli" w_c_boxer
 "MuhammadAli" / wa_v_box_attack / "GeorgeForeman".
 "GeorgeForeman" / wa_v_box_block / "MuhammadAli".

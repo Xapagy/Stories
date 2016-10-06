@@ -1,0 +1,27 @@
+//**********************************************************************
+//
+//   Simple eating: green fruit smells good but taste bitter
+//
+//**********************************************************************
+
+$Include IfNotDefined Paleolithic 'file:../Paleolithic'
+
+$Namespace Create
+$CreateScene #Reality CloseOthers With Instances "Me" "Purra" "girl"
+
+// see the fruit and pick it up
+"Me" / wa_v_notice / an w_c_green w_c_small w_c_fruit.
+"Me" / wa_va_pick / the w_c_fruit.
+"Me" / thus wa_va_hold / the w_c_fruit. 
+
+// smell it, smells good, express pleasure
+"Me" / wa_v_smell / the w_c_fruit.
+"Me" / wa_smell_appetizing. 
+"Me" / wa_v_facial_expression_yummy.
+
+// bite into it, taste bitter, spit it out.
+"Me" / wa_v_bite_from / the w_c_fruit.
+"Me" / wa_v_taste_bitter. 
+"Me" / thus wa_v_facial_expression_bitter.
+"Me" / wa_spit_out. 
+

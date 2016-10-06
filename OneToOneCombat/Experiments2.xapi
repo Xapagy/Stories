@@ -1,0 +1,28 @@
+$SetParameter A_DEBUG/G_GENERAL/N_RECORD_LINK_QUANTUMS = 1.0
+$SetParameter A_DEBUG/G_GENERAL/N_RECORD_SHADOW_QUANTUMS = 1.0
+$SetParameter A_DEBUG/G_GENERAL/N_RECORD_FOCUS_MEMORY_QUANTUMS = 1.0
+
+// $DebugHere
+
+$CreateScene #Reality CloseOthers With Instances "Achilles" greek w_c_warrior, "Hector" trojan w_c_warrior
+"Achilles" / hates / "Hector".
+"Achilles" / wa_v_sword_attack / "Hector".
+"Hector" / wa_v_sword_defend / "Achilles".
+"Achilles" / wa_v_sword_attack / "Hector".
+"Hector" / wa_v_sword_defend / "Achilles".
+"Hector" / wcr_vr_tired / "Hector".
+"Achilles" / wa_v_sword_attack / "Hector".
+"Hector" / wa_v_sword_defend / "Achilles".
+// Experiments about continuation 
+${{
+   print(introspect.getAgentName());
+   print("The first VI");
+   var vi = introspect.currentStoryLine().getVis().get(0);
+   print(introspect.verbalize(vi));   
+   //print(introspect.verbalize(introspect.currentStoryLine().getVis().get(0)));   
+   print("The current storyline");
+   print(introspect.verbalize(introspect.currentStoryLine()));
+   print("The strongest shadow storyline");
+   //print(introspect.getStrongestShadowStory());
+$}}
+// $DebugHere

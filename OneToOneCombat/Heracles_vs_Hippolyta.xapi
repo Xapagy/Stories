@@ -1,3 +1,4 @@
+$Namespace Create
 $CreateScene #Reality CloseOthers With Instances "Heracles" greek w_c_warrior, "Hyppolita" w_c_amazon woman w_c_warrior
 "Heracles" / wa_v_sword_attack / "Hyppolita".
 "Hyppolita" / wa_v_sword_defend / "Heracles".

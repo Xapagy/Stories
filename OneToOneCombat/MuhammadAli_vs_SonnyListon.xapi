@@ -2,6 +2,7 @@
 //  Fictional story of Cassius Clay vs Sonny Liston
 //  http://en.wikipedia.org/wiki/Muhammad_Ali_vs._Sonny_Liston
 //
+$Namespace Set "OneToOneCombat.AliVsListon"
 $CreateScene #Reality CloseOthers With Instances "SonnyListon" w_c_boxer, "CassiusClay" w_c_boxer
 "CassiusClay" / wa_v_box_attack / "SonnyListon".
 "SonnyListon" / wa_v_box_block / "CassiusClay".

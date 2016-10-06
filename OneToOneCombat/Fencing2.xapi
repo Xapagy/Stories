@@ -1,3 +1,4 @@
+$Namespace Create
 $CreateScene #Reality CloseOthers With Instances "Fencer-weak" w_c_sportsman, "Fencer-strong" w_c_sportsman
 "Fencer-strong" / wcr_vr_invigorated / "Fencer-strong".
 "Fencer-weak" / wcr_vr_tired / "Fencer-weak".
