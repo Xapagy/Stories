@@ -15,13 +15,26 @@ $CreateScene #Reality CloseOthers With Instances "Achilles" greek w_c_warrior, "
 "Hector" / wa_v_sword_defend / "Achilles".
 // Experiments about continuation 
 ${{
-   print(introspect.getAgentName());
-   print("The first VI");
-   var vi = introspect.currentStoryLine().getVis().get(0);
-   print(introspect.verbalize(vi));   
-   //print(introspect.verbalize(introspect.currentStoryLine().getVis().get(0)));   
-   print("The current storyline");
-   print(introspect.verbalize(introspect.currentStoryLine()));
+//
+// extract the current in-focus story lines
+//
+var storylines = introspect.inFocusStoryLines();
+print("The number of story lines in focus:", storylines.size());
+//
+// extract the latest story line
+//
+var stl = introspect.currentStoryLine();
+print("**********************************************");
+print("The current storyline");
+print(introspect.verbalize(introspect.currentStoryLine()));
+print("**********************************************");
+//
+// extract the story lines shadowing the current one
+//
+var shstls = introspect.createShadowStoryLines(stl);
+print("Number of shadow story lines:" + shstls.size());
+
+// print(introspect.verbalize(introspect.currentStoryLine().getVis().get(0)));   
    print("The strongest shadow storyline");
    //print(introspect.getStrongestShadowStory());
 $}}

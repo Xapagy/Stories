@@ -72,9 +72,44 @@ $-- "added to a VI represents that it happens for a long time"
 $Create Verb v_longtime
 
 // **********************************************************
-// Gestures and faces: these are verbs with no object
+// Gestures and faces: these are S-V type of verbs
 // **********************************************************
-$Create Verb v_ 
+
+// shown when tasking bitter or sour
+$Create Verb v_facial_expression_bitter
+
+// shown when tasting something good
+$Create Verb v_facial_expression_yummy
+
+
+// **********************************************************
+//
+// Human sensing verbs - these are supposed to be built-ins
+// We cannot sense this from other people: the subject for 
+// these verbs are _always_ "Me".
+//
+// **********************************************************
+
+// smells appetizing
+$Create Verb v_smell_appetizing
+
+// smells disgusting
+$Create Verb v_smell_disgusting
+
+// taste bitter
+$Create Verb v_taste_bitter
+
+// taste sweet
+$Create Verb v_taste_sweet
+
+// taste salty
+$Create Verb v_taste_salty
+
+// taste sour
+$Create Verb v_taste_sour
+
+// taste umami
+$Create Verb v_taste_umami
 
 // **********************************************************
 // General action verbs
@@ -92,6 +127,12 @@ $Create Verb v_eat
 
 // Somebody bites a piece from something. The assumption is that that object will become smaller
 $Create Verb v_bite_from
+
+// Spit out whatever is in your mouth
+$Create Verb v_spit_out
+
+// Swallow whatever is in your mouth
+$Create Verb v_swallow
 
 // Changing position by walking. The assumption is that by walking, I am getting closer
 // to the object I am facing and farther from the object I am facing away 
