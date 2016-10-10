@@ -21,21 +21,61 @@ ${{
 var storylines = introspect.inFocusStoryLines();
 print("The number of story lines in focus:", storylines.size());
 //
-// extract the latest story line
+// This part is the listing and examining of the current story line
 //
 var stl = introspect.currentStoryLine();
 print("**********************************************");
 print("The current storyline");
-print(introspect.verbalize(introspect.currentStoryLine()));
 print("**********************************************");
+print("----------------------------------------------");
+print("Verbalizing the VIs");
+print("----------------------------------------------");
+print(introspect.verbalize(introspect.currentStoryLine()));
+print("----------------------------------------------");
+print("List the scenes and instances");
+print("----------------------------------------------");
+for(i = 0; i < stl.getScenes().size(); i++) {
+   scene = stl.getScenes().get(i);
+   for(j = 0; j < scene.getSceneMembers().size(); j++) {
+       instance = scene.getSceneMembers().get(j);
+       print(introspect.verbalize(instance));
+   }
+}
+
+
+print("**********************************************");
+
+
+
 //
 // extract the story lines shadowing the current one
 //
 var shstls = introspect.createShadowStoryLines(stl);
 print("Number of shadow story lines:" + shstls.size());
 
-// print(introspect.verbalize(introspect.currentStoryLine().getVis().get(0)));   
-   print("The strongest shadow storyline");
-   //print(introspect.getStrongestShadowStory());
+var stlHead;
+for(i = 0; i < shstls.size(); i++) {
+   var stl = shstls.get(i).getKey();
+   if (i == 0) {
+      stlHead = stl;
+   }
+   print("----------------------------------------------");
+   print("Storyline: <<how we name them???>> overall shadow strength=" + shstls.get(i).getValue());
+   print("----------------------------------------------");
+   print(introspect.verbalize(stl));
+   print("----------------------------------------------");
+}
+//
+// print the strongest shadow story line
+//
+print("----------------------------------------------");
+print("The strongest shadow storyline");
+print("----------------------------------------------");
+print(introspect.verbalize(stlHead));
+print("----------------------------------------------");
+//
+// print the matching and matching level
+//
+
 $}}
 // $DebugHere
