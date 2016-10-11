@@ -23,26 +23,24 @@ print("The number of story lines in focus:", storylines.size());
 //
 // This part is the listing and examining of the current story line
 //
-var stl = introspect.currentStoryLine();
+var stlFocus = introspect.currentStoryLine();
 print("**********************************************");
 print("The current storyline");
 print("**********************************************");
 print("----------------------------------------------");
 print("Verbalizing the VIs");
 print("----------------------------------------------");
-print(introspect.verbalize(introspect.currentStoryLine()));
+print(introspect.verbalize(stlFocus));
 print("----------------------------------------------");
 print("List the scenes and instances");
 print("----------------------------------------------");
-for(i = 0; i < stl.getScenes().size(); i++) {
-   scene = stl.getScenes().get(i);
+for(i = 0; i < stlFocus.getScenes().size(); i++) {
+   scene = stlFocus.getScenes().get(i);
    for(j = 0; j < scene.getSceneMembers().size(); j++) {
        instance = scene.getSceneMembers().get(j);
        print(introspect.verbalize(instance));
    }
 }
-
-
 print("**********************************************");
 
 
@@ -50,14 +48,14 @@ print("**********************************************");
 //
 // extract the story lines shadowing the current one
 //
-var shstls = introspect.createShadowStoryLines(stl);
+var shstls = introspect.createShadowStoryLines(stlFocus);
 print("Number of shadow story lines:" + shstls.size());
 
-var stlHead;
+var shStlHead;
 for(i = 0; i < shstls.size(); i++) {
    var stl = shstls.get(i).getKey();
    if (i == 0) {
-      stlHead = stl;
+      shStlHead = stl;
    }
    print("----------------------------------------------");
    print("Storyline: <<how we name them???>> overall shadow strength=" + shstls.get(i).getValue());
@@ -71,11 +69,12 @@ for(i = 0; i < shstls.size(); i++) {
 print("----------------------------------------------");
 print("The strongest shadow storyline");
 print("----------------------------------------------");
-print(introspect.verbalize(stlHead));
+print(introspect.verbalize(shStlHead));
 print("----------------------------------------------");
 //
-// print the matching and matching level
+// print the matching instances and matching level
 //
+print(introspect.printLikelyInstanceMapping(stlFocus, shStlHead));
 
 $}}
 // $DebugHere
