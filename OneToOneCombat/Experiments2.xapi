@@ -74,7 +74,8 @@ print("----------------------------------------------");
 //
 // print the matching instances and matching level
 //
-print(introspect.printLikelyInstanceMapping(stlFocus, shStlHead));
+print(introspect.formatInstanceMapping(introspect.getLikelyInstanceMapping(stlFocus, shStlHead)));
+print(introspect.formatViMapping(introspect.getLikelyViMapping(stlFocus, shStlHead)));
 
 $}}
 // $DebugHere
