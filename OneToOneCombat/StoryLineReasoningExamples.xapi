@@ -76,6 +76,12 @@ print("----------------------------------------------");
 //
 print(introspect.formatInstanceMapping(introspect.getLikelyInstanceMapping(stlFocus, shStlHead)));
 print(introspect.formatViMapping(introspect.getLikelyViMapping(stlFocus, shStlHead)));
+var pred = introspect.createPrediction(stlFocus, shStlHead);
+print("What???" + pred.size());
+for(i = 0; i < pred.size(); i++) {
+   // print("what what what");
+   print(introspect.verbalize(pred.get(i)));
+};
 
 $}}
 // $DebugHere
