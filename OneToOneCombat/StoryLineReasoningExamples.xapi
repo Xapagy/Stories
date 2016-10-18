@@ -82,10 +82,11 @@ print("----------------------------------------------");
 print("VI mapping between the focus line\n and the best shadow");
 print("----------------------------------------------");
 print(introspect.formatViMapping(introspect.getLikelyViMapping(stlFocus, shStlHead)));
-var pred = introspect.createPrediction(stlFocus, shStlHead);
 print("*********************************************");
 print("Prediction based on the strongest story line");
 print("*********************************************");
+var pred = introspect.createPrediction(stlFocus, shStlHead);
+print("**********Prediction created ******************************");
 for(i = 0; i < pred.size(); i++) {
    print(introspect.verbalize(pred.get(i)));
 };
@@ -93,7 +94,7 @@ print("----------------------------------------------");
 print("Now enact the prediction");
 print("----------------------------------------------");
 for(i = 0; i < pred.size(); i++) {
-   introspect.enactVi(pred.get(i)));
+   introspect.enactVi(pred.get(i));
 };
 $}}
-// $DebugHere
+$DebugHere
