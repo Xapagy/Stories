@@ -1,0 +1,26 @@
+// $SetParameter A_DEBUG/G_GENERAL/N_RECORD_LINK_QUANTUMS = 1.0
+// $SetParameter A_DEBUG/G_GENERAL/N_RECORD_SHADOW_QUANTUMS = 1.0
+// $SetParameter A_DEBUG/G_GENERAL/N_RECORD_FOCUS_MEMORY_QUANTUMS = 1.0
+
+ 
+
+$CreateScene #Reality CloseOthers With Instances "Achilles" greek w_c_warrior, "Hector" trojan w_c_warrior
+"Achilles" / hates / "Hector".
+"Achilles" / wa_v_sword_attack / "Hector".
+"Hector" / wa_v_sword_defend / "Achilles".
+"Achilles" / wa_v_sword_attack / "Hector".
+"Hector" / wa_v_sword_defend / "Achilles".
+"Hector" / wcr_vr_tired / "Hector".
+"Achilles" / wa_v_sword_attack / "Hector".
+"Hector" / wa_v_sword_defend / "Achilles".
+// questions
+"Achilles" / #Q1 wa_v_sword_attack / wh?
+Wh / #Q2  wa_v_sword_attack / "Achilles"?
+$DebugHere
+// Wh / hurts / "Hector"?
+// 
+// Experiments about questions 
+${{
+print(introspect.answerQuestion("Q1"));
+print(introspect.answerQuestion("Q2"));
+$}}
