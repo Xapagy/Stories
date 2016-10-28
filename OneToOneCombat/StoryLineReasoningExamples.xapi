@@ -81,7 +81,12 @@ print(introspect.formatInstanceMapping(introspect.getLikelyInstanceMapping(stlFo
 print("----------------------------------------------");
 print("VI mapping between the focus line\n and the best shadow");
 print("----------------------------------------------");
-print(introspect.formatViMapping(introspect.getLikelyViMapping(stlFocus, shStlHead)));
+print(introspect.formatViMapping(introspect.getLikelyViMapping(stlFocus, 
+shStlHead)));
+print("*********************************************");
+print("Completion - based on the strongest shadow");
+print("*********************************************");
+print(introspect.showCompletion());
 print("*********************************************");
 print("Prediction based on the strongest story line");
 print("*********************************************");
@@ -96,5 +101,6 @@ print("----------------------------------------------");
 for(i = 0; i < pred.size(); i++) {
    introspect.enactVi(pred.get(i));
 };
+
 $}}
 $DebugHere

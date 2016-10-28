@@ -16,11 +16,9 @@ $CreateScene #Reality CloseOthers With Instances "Achilles" greek w_c_warrior, "
 // questions
 "Achilles" / #Q1 wa_v_sword_attack / wh?
 Wh / #Q2  wa_v_sword_attack / "Achilles"?
-$DebugHere
-// Wh / hurts / "Hector"?
-// 
+// $DebugHere
 // Experiments about questions 
 ${{
-print(introspect.answerQuestion("Q1"));
-print(introspect.answerQuestion("Q2"));
+introspect.answerQuestion("#Q1");
+introspect.answerQuestion("#Q2");
 $}}
