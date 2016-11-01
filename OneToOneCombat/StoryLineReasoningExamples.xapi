@@ -99,7 +99,7 @@ print("----------------------------------------------");
 print("Now enact the prediction");
 print("----------------------------------------------");
 for(i = 0; i < pred.size(); i++) {
-   introspect.enactVi(pred.get(i));
+   introspect.execute(pred.get(i));
 };
 
 $}}
