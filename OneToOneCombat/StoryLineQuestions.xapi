@@ -13,12 +13,29 @@ $CreateScene #Reality CloseOthers With Instances "Achilles" greek w_c_warrior, "
 "Hector" / wcr_vr_tired / "Hector".
 "Achilles" / wa_v_sword_attack / "Hector".
 "Hector" / wa_v_sword_defend / "Achilles".
-// questions
+${{
+introspect.answerOfflineQuestion("'Achilles' / wa_v_sword_attack / wh?"); 
+print("--------------------\n\n\n");
+$}}
+
+// what type questions
 "Achilles" / #Q1 wa_v_sword_attack / wh?
 Wh / #Q2  wa_v_sword_attack / "Achilles"?
+"Achilles" / #Q3 #PAST wa_v_sword_attack / wh?
+Wh / #Q4 #FUTURE  wa_v_sword_attack / "Achilles"?
+// whether type questions
+"Achilles" / #Q5 #PAST whether wa_v_sword_attack / "Hector"?
+"Hector" / #Q6 #FUTURE whether wa_v_sword_attack / "Achilles"?
 // $DebugHere
 // Experiments about questions 
 ${{
-introspect.answerQuestion("#Q1");
-introspect.answerQuestion("#Q2");
+vi = introspect.parseStringToVi("'Hector' / wa_v_sword_defend / 'Achilles'.");
+print(introspect.verbalize(vi));
+
+introspect.answerOnlineQuestion("#Q1");
+introspect.answerOnlineQuestion("#Q2");
+introspect.answerOnlineQuestion("#Q3");
+introspect.answerOnlineQuestion("#Q4");
+introspect.answerOnlineQuestion("#Q5");
+introspect.answerOnlineQuestion("#Q6");
 $}}
