@@ -15,6 +15,9 @@ xapagy D-Paleolithic.xapi P-FocusOnly.xapi --output-agent D-Paleolithic.xa
 Running domain warmups
 ----------------------
 
+xapagy -i D-Paleolithic.xa Warmup.xapi -o DW-Paleolithic.xa
+
+
 - fixme: this will really need to be warmed up with a lot of things
 
 Running the story
