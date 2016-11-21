@@ -124,6 +124,8 @@ $Create Verb v_smell
 // Somebody eats something by putting it in its mouth. The assumption is that that object will not exist any more
 $Create Verb v_eat
 
+// Somebody drinks something: let us go with the assumption that this implies drinking from an unexhausible source, like a river
+$Create Verb v_drink
 
 // Somebody bites a piece from something. The assumption is that that object will become smaller
 $Create Verb v_bite_from

@@ -1,0 +1,25 @@
+// this is a test file that checks the different models for drives
+// through the following exaple:
+//
+//  Purra got more and more thirsty. She went to the river. She drank
+//  water. She was not thirsty any more.
+//
+//  Next time she went to the river, she went next to the tree. There
+//  were some nettles there, 
+$CreateScene #Reality_1 CloseOthers With Instances "Me" "Purra" girl #Me, "Murra" girl #Murra, w_c_rock w_c_small, w_c_rock w_c_large
+${{
+print(agent.getDrives());
+var instance = ref.InstanceByLabel("#Me");
+print(instance);
+agent.getDrives().setSelf(instance);
+agent.getDrives().addDriveOfOthers("Murra", ref.InstanceByLabel("#Murra"));
+introspect.setVerbDriveImpactOnSubject("v_drink", "Drive_Thirst", -10);
+introspect.setVerbDriveImpactOnSubject("v_does_nothing", "Drive_Thirst", 1);
+$}}
+--
+"Purra" / wa_v_drink.
+${{
+print(agent.getDrives());
+print(agent.getDrives().getDrivesOfOthers("Murra"));
+$}}
+
