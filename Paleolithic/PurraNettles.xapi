@@ -13,7 +13,7 @@ var instance = ref.InstanceByLabel("#Me");
 print(instance);
 agent.getDrives().setSelf(instance);
 agent.getDrives().addDriveOfOthers("Murra", ref.InstanceByLabel("#Murra"));
-introspect.setVerbDriveImpactOnSubject("v_drink", "Drive_Thirst", -10);
+introspect.setVerbDriveImpactOnSubject("v_drink", "Drive_Thirst", -0.1);
 introspect.setVerbDriveImpactOnSubject("v_does_nothing", "Drive_Thirst", 1);
 $}}
 --
