@@ -1,0 +1,76 @@
+// *********************************************************************
+//
+//   The objective of the one-to-one combat summarization domain is 
+//   to verify the new summarization model developed in Nov 2016
+//
+//   It is not expected that this domain will be integrated into 
+//   the generic SYAB.
+//   We do not expect that these are very realistically modeled.
+//
+//   General principles:
+//   * two protagonists are engaged in a sword fight
+//   * the state of the fight can be judged (eg. tiredness or 
+//   vigor of one of the combatants)
+//   * there is an outcome (winning / loosing / draw)
+//
+//   
+//
+// ************************************************************************
+
+$Define O2OCSummarization
+
+$Include IfNotDefined Human 'Human'
+
+// **********************************************************
+//   Level 0 verbs - they are supposed to be instantaneous
+// **********************************************************
+
+$Create Verb v_attack
+$Create Verb v_parry
+$Create Verb v_cut
+$Create Verb v_step_forward
+$Create Verb v_step_back
+$Create Verb v_push
+$Create Verb v_concede
+$Create Verb v_win
+$Create Verb v_shake-hands
+$Create Verb v_die
+$Create Verb v_run
+$Create Verb v_cry-in-pain
+$Create Verb v_yell-in-triumph
+
+// **********************************************************
+//   Level 1 verbs - sequences of several seconds
+// **********************************************************
+
+$Create Verb v_engagement
+$Create Verb v_winning_engagement
+${{
+   agent.getVerbDB().getConcept("v_engagement").setSummarizationLevel(1);
+   agent.getVerbDB().getConcept("v_winning_engagement").setSummarizationLevel(1);
+$}}
+
+// **********************************************************
+//   Level 2 verbs - sequence of a minute or more
+// **********************************************************
+$Create Verb v_duel
+$Create Verb v_wins_duel
+$Create Verb v_kills_in_duel
+${{
+   agent.getVerbDB().getConcept("v_duel").setSummarizationLevel(2);
+   agent.getVerbDB().getConcept("v_wins_duel").setSummarizationLevel(2);
+   agent.getVerbDB().getConcept("v_kills_in_duel").setSummarizationLevel(2);
+$}}
+
+// **********************************************************
+//   Relations
+// **********************************************************
+
+// single term relation, connect to scene
+$Create Relation vr_bleeding
+
+// single term relation, connect to scene
+$Create Relation vr_tired
+
+// single term relation, connect to scene
+$Create Relation vr_invigorated
