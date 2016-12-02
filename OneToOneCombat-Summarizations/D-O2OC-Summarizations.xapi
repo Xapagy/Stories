@@ -22,6 +22,12 @@ $Define O2OCSummarization
 $Include IfNotDefined Human 'Human'
 
 // **********************************************************
+//   Concepts related to combat
+// **********************************************************
+$Create Concept c_warrior
+
+
+// **********************************************************
 //   Level 0 verbs - they are supposed to be instantaneous
 // **********************************************************
 
@@ -36,8 +42,8 @@ $Create Verb v_win
 $Create Verb v_shake-hands
 $Create Verb v_die
 $Create Verb v_run
-$Create Verb v_cry-in-pain
-$Create Verb v_yell-in-triumph
+$Create Verb v_cry_in_pain
+$Create Verb v_yell_in_triumph
 
 // **********************************************************
 //   Level 1 verbs - sequences of several seconds

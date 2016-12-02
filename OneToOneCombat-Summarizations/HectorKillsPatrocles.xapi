@@ -1,0 +1,46 @@
+// a fight between two armed warriors Patrocles and Hector.  
+// Hector ends up winning the engagement, killing Patrocles. 
+// The challenge here is way in which the summarization VIs of 
+// various levels are connected to things... In this particular 
+// case all the levels are fully entered...
+$Namespace Create
+$CreateScene #Reality CloseOthers With Instances "Patrocles"  w_c_warrior, "Hector" w_c_warrior
+// the duel starts here 
+
+// begin the first engagement
+"Patrocles" / wa_v_step_forward / "Hector".
+"Patrocles" / wa_v_attack / "Hector".
+// level 1 verb  
+"Patrocles" + "Hector" / wa_v_engagement. 
+"Hector" / wa_v_parry / "Patrocles".
+"Hector" / wa_v_step_back / "Patrocles".
+
+// at this moment we know that we are in a duel
+// level 2 verb
+"Patrocles" + "Hector" / wa_v_duel.
+
+// begin the second engagement
+"Hector" / wa_v_step_forward / "Patrocles".
+"Hector" / wa_v_push / "Patrocles".
+"Patrocles" + "Hector" / wa_v_engagement.
+"Hector" / wa_v_attack / "Patrocles".
+"Patrocles" / wa_v_parry / "Hector". 
+"Hector" / wcr_vr_invigorated / the scene. 
+"Patrocles" / wcr_vr_tired / the scene. 
+"Hector" / thus wa_v_winning_engagement / "Patrocles". 
+
+// third, final engagement
+"Hector" / wa_v_step_forward / "Patrocles". 
+"Patrocles" + "Hector" / wa_v_engagement.
+"Hector" / wa_v_attack / "Patrocles".
+"Hector" / wa_v_cut / "Patrocles". 
+"Patrocles" / wa_v_cry_in_pain.
+"Patrocles" / wcr_vr_bleeding / the scene.
+// level 1 verb
+"Hector" / thus wa_v_winning_engagement / "Patrocles". 
+"Hector" / wa_v_yell_in_triumph.
+// level 2 verb
+"Hector" / wa_v_wins_duel / "Patrocles".
+"Patrocles" / changes / dead.
+"Hector" / wa_v_kills_in_duel / "Patrocles".
+$DebugHere
