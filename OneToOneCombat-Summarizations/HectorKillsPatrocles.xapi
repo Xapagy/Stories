@@ -6,12 +6,12 @@
 $Namespace Create
 $CreateScene #Reality CloseOthers With Instances "Patrocles"  w_c_warrior, "Hector" w_c_warrior
 // the duel starts here 
-
 // begin the first engagement
 "Patrocles" / wa_v_step_forward / "Hector".
 "Patrocles" / wa_v_attack / "Hector".
 // level 1 verb  
 "Patrocles" + "Hector" / wa_v_engagement. 
+$DebugHere
 "Hector" / wa_v_parry / "Patrocles".
 "Hector" / wa_v_step_back / "Patrocles".
 
