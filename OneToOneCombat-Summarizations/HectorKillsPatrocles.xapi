@@ -10,15 +10,18 @@ $CreateScene #Reality CloseOthers With Instances "Patrocles"  w_c_warrior, "Hect
 "Patrocles" / wa_v_step_forward / "Hector".
 "Patrocles" / wa_v_attack / "Hector".
 // level 1 verb  
-"Patrocles" + "Hector" / wa_v_engagement. 
-$DebugHere
+"Patrocles" + "Hector" / wa_v_engagement.
+$CreateLink 'Summarization_Begin' {'wa_v_step_forward'} ==> {'wa_v_engagement'} 
 "Hector" / wa_v_parry / "Patrocles".
+$CreateLink 'Summarization_Body' {'wa_v_parry'} ==> {'wa_v_engagement'} 
 "Hector" / wa_v_step_back / "Patrocles".
+$CreateLink 'Summarization_Close' {'wa_v_step_back'} ==> {'wa_v_engagement'} 
 
 // at this moment we know that we are in a duel
 // level 2 verb
 "Patrocles" + "Hector" / wa_v_duel.
 
+$DebugHere
 // begin the second engagement
 "Hector" / wa_v_step_forward / "Patrocles".
 "Hector" / wa_v_push / "Patrocles".

@@ -22,7 +22,7 @@ Typical way to run this:
 Creating a starting agent loaded with the story domain
 -------------------------------------------------------
 
-xapagy D-OneToOneCombat.xapi P-FocusOnly.xapi --output-agent D-OneToOneCombat.xa
+xapagy D-OneToOneCombat.xapi P-FocusOnly.xapi --output-agent 
 
 Note, that although this will pull in the Core domain definitions and whatever else D-OneToOneCombat.xapi pulls in, it will have no previous autobiography for these domains.
 
