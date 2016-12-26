@@ -10,7 +10,7 @@ $CreateScene #Reality CloseOthers With Instances "Patrocles"  w_c_warrior, "Hect
 "Patrocles" / wa_v_step_forward / "Hector".
 "Patrocles" / wa_v_attack / "Hector".
 // level 1 verb  
-"Patrocles" + "Hector" / wa_v_engagement.
+"Patrocles" + "Hector" / wa_v_engagement #ENG1.
 $CreateLink 'Summarization_Begin' {'wa_v_step_forward'} ==> {'wa_v_engagement'} 
 "Hector" / wa_v_parry / "Patrocles".
 $CreateLink 'Summarization_Body' {'wa_v_parry'} ==> {'wa_v_engagement'} 
@@ -20,21 +20,34 @@ $CreateLink 'Summarization_Close' {'wa_v_step_back'} ==> {'wa_v_engagement'}
 // at this moment we know that we are in a duel
 // level 2 verb
 "Patrocles" + "Hector" / wa_v_duel.
+$CreateLink 'Summarization_Begin' {'wa_v_engagement'} ==> {'wa_v_duel'} 
 
-$DebugHere
 // begin the second engagement
 "Hector" / wa_v_step_forward / "Patrocles".
 "Hector" / wa_v_push / "Patrocles".
-"Patrocles" + "Hector" / wa_v_engagement.
+"Patrocles" + "Hector" / wa_v_engagement #ENG2.
+$CreateLink 'Summarization_Begin' {'wa_v_step_forward'} ==> {'wa_v_engagement'} 
+$CreateLink 'Summarization_Body' {'wa_v_push'} ==> {'wa_v_engagement'} 
+$CreateLink 'Successor' {'wa_v_engagement #ENG1'} ==> {'wa_v_engagement #ENG2'} 
+$CreateLink 'Summarization_Body' {'wa_v_engagement #ENG2' } ==> {'wa_v_duel'} 
+
+
 "Hector" / wa_v_attack / "Patrocles".
+$CreateLink 'Summarization_Body' {'wa_v_attack' } ==> {'wa_v_engagement'} 
 "Patrocles" / wa_v_parry / "Hector". 
+$CreateLink 'Summarization_Body' {'wa_v_parry' } ==> {'wa_v_engagement'} 
 "Hector" / wcr_vr_invigorated / the scene. 
 "Patrocles" / wcr_vr_tired / the scene. 
 "Hector" / thus wa_v_winning_engagement / "Patrocles". 
+$CreateLink 'Summarization_Close' {'wa_v_wining_engagement' } ==> {'wa_v_engagement'} 
 
 // third, final engagement
 "Hector" / wa_v_step_forward / "Patrocles". 
-"Patrocles" + "Hector" / wa_v_engagement.
+// level 1 verb
+"Patrocles" + "Hector" / wa_v_engagement #ENG3.
+$CreateLink 'Summarization_Begin' {'wa_v_step_forward'} ==> {'wa_v_engagement'} 
+$CreateLink 'Summarization_Body' {'wa_v_step_forward'} ==> {'wa_v_engagement'} 
+
 "Hector" / wa_v_attack / "Patrocles".
 "Hector" / wa_v_cut / "Patrocles". 
 "Patrocles" / wa_v_cry_in_pain.
