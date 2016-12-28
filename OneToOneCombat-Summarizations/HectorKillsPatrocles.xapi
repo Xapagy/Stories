@@ -39,7 +39,7 @@ $CreateLink 'Summarization_Body' {'wa_v_parry' } ==> {'wa_v_engagement'}
 "Hector" / wcr_vr_invigorated / the scene. 
 "Patrocles" / wcr_vr_tired / the scene. 
 "Hector" / thus wa_v_winning_engagement / "Patrocles". 
-$CreateLink 'Summarization_Close' {'wa_v_wining_engagement' } ==> {'wa_v_engagement'} 
+$CreateLink 'Summarization_Close' {'wa_v_winning_engagement' } ==> {'wa_v_engagement'} 
 
 // third, final engagement
 "Hector" / wa_v_step_forward / "Patrocles". 
@@ -49,14 +49,34 @@ $CreateLink 'Summarization_Begin' {'wa_v_step_forward'} ==> {'wa_v_engagement'}
 $CreateLink 'Summarization_Body' {'wa_v_step_forward'} ==> {'wa_v_engagement'} 
 
 "Hector" / wa_v_attack / "Patrocles".
+$CreateLink 'Summarization_Body' {'wa_v_attack'} ==> {'wa_v_engagement'} 
 "Hector" / wa_v_cut / "Patrocles". 
+$CreateLink 'Summarization_Body' {'wa_v_cut'} ==> {'wa_v_engagement'} 
 "Patrocles" / wa_v_cry_in_pain.
+$CreateLink 'Summarization_Body' {'wa_v_cry_in_pain'} ==> {'wa_v_engagement'} 
 "Patrocles" / wcr_vr_bleeding / the scene.
-// level 1 verb
-"Hector" / thus wa_v_winning_engagement / "Patrocles". 
+// we go with the assumption that the yell of Hector closes this engagement favorably for him
 "Hector" / wa_v_yell_in_triumph.
+$CreateLink 'Summarization_Close' {'wa_v_yell_in_triumph'} ==> {'wa_v_engagement'} 
+$CreateLink 'Summarization_Body' {'wa_v_yell_in_triumph'} ==> {'wa_v_engagement'} 
+
+// level 1 verb - augments the last engagement 
+"Hector" / thus wa_v_winning_engagement / "Patrocles". 
+// ok, it is unclear where this one had been inferred from - where is the closure coming from?
+$CreateLink 'Summarization_Close' {'wa_v_winning_engagement'} ==> {'wa_v_duel'} 
+
+// augmenting the overall level-2 stuff: we declare the whole things as a win for Hector
 // level 2 verb
-"Hector" / wa_v_wins_duel / "Patrocles".
-"Patrocles" / changes / dead.
-"Hector" / wa_v_kills_in_duel / "Patrocles".
+"Hector" / thus wa_v_wins_duel / "Patrocles".
+
+
 $DebugHere
+
+//
+// NOTE: Although this should end with the death of Patrocles,
+// the change stuff is again a different stuff, so for just working
+// with the summarization, we will keep it like this...
+//
+
+// "Patrocles" / changes / dead.
+// "Hector" / thus wa_v_kills_in_duel / "Patrocles".
