@@ -1,0 +1,42 @@
+$Include "HectorKillsPatrocles"
+// Experiments about the renarrate  
+${{
+var stlFocus = introspect.currentStoryLine();
+// all 
+print("**********************************************");
+print("renarrate(all)");
+print("**********************************************");
+var ren = introspect.renarrate(stlFocus, "all");
+str = introspect.verbalize(ren);
+print(str);
+// 0 
+print("**********************************************");
+print("renarrate(0)");
+print("**********************************************");
+var ren = introspect.renarrate(stlFocus, "0");
+str = introspect.verbalize(ren);
+print(str);
+// 1 
+print("**********************************************");
+print("renarrate(1)");
+print("**********************************************");
+var ren = introspect.renarrate(stlFocus, "1");
+str = introspect.verbalize(ren);
+print(str);
+// 2 
+print("**********************************************");
+print("renarrate(2)");
+print("**********************************************");
+var ren = introspect.renarrate(stlFocus, "2");
+str = introspect.verbalize(ren);
+print(str);
+// 3 
+print("**********************************************");
+print("renarrate(3)");
+print("**********************************************");
+var ren = introspect.renarrate(stlFocus, "3");
+str = introspect.verbalize(ren);
+print(str);
+
+
+$}}

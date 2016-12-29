@@ -70,7 +70,7 @@ $CreateLink 'Summarization_Close' {'wa_v_winning_engagement'} ==> {'wa_v_duel'}
 "Hector" / thus wa_v_wins_duel / "Patrocles".
 
 
-$DebugHere
+// $DebugHere
 
 //
 // NOTE: Although this should end with the death of Patrocles,
