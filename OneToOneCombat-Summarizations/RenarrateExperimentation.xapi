@@ -2,19 +2,32 @@ $Include "HectorKillsPatrocles"
 // Experiments about the renarrate  
 ${{
 var stlFocus = introspect.currentStoryLine();
+introspect.store.put("ST", stlFocus);
+$}}
+
+$Namespace Create
+$CreateScene #Story Current  With Instances "Ulysses"  w_c_warrior
+
+${{
+var stlFocus = introspect.store.get("ST");
+introspect.renarrate(stlFocus, "all");
+$}}
+
+$DebugHere
+
 // all 
 print("**********************************************");
 print("renarrate(all)");
 print("**********************************************");
-var ren = introspect.renarrate(stlFocus, "all");
-str = introspect.verbalize(ren);
+//var ren = introspect.renarrate(stlFocus, "all");
+//str = introspect.verbalize(ren);
 print(str);
 // 0 
 print("**********************************************");
 print("renarrate(0)");
 print("**********************************************");
-var ren = introspect.renarrate(stlFocus, "0");
-str = introspect.verbalize(ren);
+//var ren = introspect.renarrate(stlFocus, "0");
+//str = introspect.verbalize(ren);
 print(str);
 // 1 
 print("**********************************************");
@@ -37,6 +50,3 @@ print("**********************************************");
 var ren = introspect.renarrate(stlFocus, "3");
 str = introspect.verbalize(ren);
 print(str);
-
-
-$}}
