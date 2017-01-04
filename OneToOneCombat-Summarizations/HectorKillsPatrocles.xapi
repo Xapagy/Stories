@@ -13,9 +13,16 @@ $CreateScene #Reality CloseOthers With Instances "Patrocles"  w_c_warrior, "Hect
 "Patrocles" + "Hector" / wa_v_engagement #ENG1.
 $CreateLink 'Summarization_Begin' {'wa_v_step_forward'} ==> {'wa_v_engagement'} 
 "Hector" / wa_v_parry / "Patrocles".
+// Relation creation 
+// Are these become part of the summary???
+"Hector" / wcr_vr_invigorated / the scene. 
+"Patrocles" / wcr_vr_tired / the scene. 
+
+
 $CreateLink 'Summarization_Body' {'wa_v_parry'} ==> {'wa_v_engagement'} 
 "Hector" / wa_v_step_back / "Patrocles".
 $CreateLink 'Summarization_Close' {'wa_v_step_back'} ==> {'wa_v_engagement'} 
+
 
 // at this moment we know that we are in a duel
 // level 2 verb
@@ -36,8 +43,6 @@ $CreateLink 'Summarization_Body' {'wa_v_engagement #ENG2' } ==> {'wa_v_duel'}
 $CreateLink 'Summarization_Body' {'wa_v_attack' } ==> {'wa_v_engagement'} 
 "Patrocles" / wa_v_parry / "Hector". 
 $CreateLink 'Summarization_Body' {'wa_v_parry' } ==> {'wa_v_engagement'} 
-"Hector" / wcr_vr_invigorated / the scene. 
-"Patrocles" / wcr_vr_tired / the scene. 
 "Hector" / thus wa_v_winning_engagement / "Patrocles". 
 $CreateLink 'Summarization_Close' {'wa_v_winning_engagement' } ==> {'wa_v_engagement'} 
 
