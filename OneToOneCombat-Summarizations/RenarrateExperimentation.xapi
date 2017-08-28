@@ -10,6 +10,7 @@ $Namespace Create
 $CreateScene #Story Current  With Instances "Ulysses"  w_c_warrior
 $DebugHere
 
+// ok, so this renarrated whatever it renarrated but it did exactly the same thing...
 ${{
 var stlFocus = introspect.store.get("ST");
 introspect.renarrate(stlFocus, "all");
@@ -17,6 +18,7 @@ $}}
 
 $DebugHere
 
+${{
 // all 
 print("**********************************************");
 print("renarrate(all)");
@@ -52,3 +54,4 @@ print("**********************************************");
 var ren = introspect.renarrate(stlFocus, "3");
 str = introspect.verbalize(ren);
 print(str);
+$}}
